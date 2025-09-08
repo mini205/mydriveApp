@@ -3,12 +3,13 @@ import { StyleSheet, Text, View, Image, SafeAreaView } from 'react-native';
 
 export default function App() {
   const age = 20;
-  const licenseyears= 5;
+  const licenseyears= 7;
   let feedback = '';
 
  
 
   if (age >= 18)
+    /* the condition age >= 18 was true */
     if (licenseyears >= 3 ) 
     {
       feedback = 'You are a qualified, safe driver.';
@@ -20,8 +21,30 @@ export default function App() {
   {
 
 
-    feedback = 'You are not allowed to drive. HELL NAA '
+    feedback = 'You are not allowed to drive. HELL NAA!! '
   }
+//adding a SWITCH STATEMENT
+let drivingRank = '';
+switch (licenseyears) {
+    case 0:
+       drivingRank = 'Newbie driver';
+       break;
+       case 1:
+        drivingRank = 'Rookie with 1 year of driving experience';
+        break;
+        case 2:
+        drivingRank = 'Intermediate driver with 2 year of driving experience';
+        break;
+         case 3:
+        drivingRank = 'Intermediate driver with 3 year of driving experience';
+         case 4:
+        drivingRank = 'Intermediate driver with 4 year of driving experience';
+        break;
+          default:
+            drivingRank = 'Veteran driver with many years'
+
+}
+
 
 
   return (
@@ -37,11 +60,15 @@ export default function App() {
       style= {styles.image}></Image>
       <Text style={styles.response}>Age: {age}</Text>
       <Text style={styles.response}>License Years: {licenseyears}</Text>
-      <Text style={[styles.response, {fontSize:48, color:'orange', marginBottom:35, textAlign:'center'}]}>
+      <Text style={[styles.response, {fontSize:45, color:'orange', marginBottom:35, textAlign:'center'}]}>
       {feedback} {/* This message to be displayed to the user */}
       </Text>
 
 
+  <Text style={styles.response}>License Years: {licenseyears}</Text>
+      <Text style={[styles.response, {fontSize:45, color:'red', marginBottom:35, textAlign:'center'}]}>
+      Driving Rank {drivingRank} {/* This is the Driving Text Component */}
+      </Text>
       
        
 
@@ -71,7 +98,8 @@ const styles = StyleSheet.create({
     fontSize: 28,
     color:'white',
     fontWeight: 'bold',
-    marginVertical:30
+    marginVertical:30,
+    textAlign: 'center'
   },
   image: {
     width:500,
